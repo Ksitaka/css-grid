@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+nav {
+  height: 120px;
+  /* background: beige; */
+  border: 2px solid black;
+  box-shadow: 1px 5px 1px 5px #5555;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  position: static;
+}
+
+.navigate {
+  display: flex;
+  margin-left: 60px;
+  list-style-type: none;
+  top: -10px;
+  position: relative;
+}
+
+nav ul li {
+  border: 2px black solid;
+  margin-left: 100px;
+  font-size: 30px;
+  padding: 5px;
+  text-transform: capitalize;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+nav ul li a {
+  color: #ffff;
+  text-decoration: none;
+}
+
+nav ul li:nth-child(odd) {
+  background: blue;
+}
+nav ul li:nth-child(even) {
+  background: #00ff00;
+}
+
+nav ul li:hover {
+  background: #ffa500;
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  height: 400px;
+  margin-top: 50px;
+  gap: 3rem;
+}
+
+.toolbar {
+  padding-top: 20px;
+  width: 30%;
+  margin-left: 20px;
+  background-color: #c0c0c0;
+  margin-bottom: 50px;
+  padding-left: 10px;
+}
+
+.toolbar ul {
+  align-items: left;
+  list-style-type: none;
+}
+.toolbar ul li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.toolbar ul li a {
+  text-decoration: none;
+}
+
+.toolbar ul li i {
+  margin-right: 16px;
+}
+
+.form {
+  align-items: right;
+  width: 70%;
+  /* margin-left: 50px; */
+  margin-bottom: 50px;
+  background-color: #c0c0c0;
+  margin-right: 20px;
+
+  /* justify-content: center; */
+  /* text-align: center; */
+}
+
+form {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 23% 23% 24%;
+  grid-gap: 20px;
+  grid-template-rows: repeat(4, 25px);
+  grid-template-areas:
+    "firstName middleName lastName"
+    "passlabel passwordfield passwordfield"
+    "emaillable emailfield emailfield"
+    "textarea textarea textarea";
+}
+
+label[for="firstName"] {
+  display: none;
+}
+
+label[for="middleName"] {
+  display: none;
+}
+
+label[for="lastName"] {
+  display: none;
+}
+
+label[for="password"] {
+  grid-area: passlabel;
+}
+
+input[name="password"] {
+  grid-area: passwordfield;
+}
+
+label[for="email"] {
+  grid-area: emaillable;
+}
+
+input[name="email"] {
+  grid-area: emailfield;
+}
+
+textarea[name="personalinfo"] {
+  grid-area: textarea;
+  height: 120px;
+}
+
+input[name="email"]:focus {
+  border-color: #000;
+}
+::placeholder {
+  color: #d00000;
+  padding-left: 10px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #7ebce6;
+}
+
+@media (max-width: 768px) {
+  nav {
+    height: unset;
+    border: none;
+    box-shadow: none;
+    margin-left: unset;
+    margin-top: unset;
+    margin-right: unset;
+  }
+  .navigate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style-type: none;
+    top: unset;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  nav ul li {
+    border: 2px black solid;
+    margin-left: unset;
+    font-size: 30px;
+    padding: 5px;
+    text-transform: capitalize;
+    align-items: unset;
+    justify-content: space-evenly;
+    margin-bottom: 4px;
+  }
+  .container {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    height: unset;
+    gap: 0.62rem;
+  }
+  .toolbar {
+    width: auto;
+    margin: 8px 5px 20px 20px;
+    margin-right: 20px;
+    padding-top: 5px;
+  }
+  .form {
+    align-items: left;
+    width: 100%;
+    margin: 5px 50px 20px 20px;
+    padding-left: 10px;
+    padding-top: 5px;
+    justify-content: unset;
+  }
+  form {
+    display: grid;
+    justify-content: unset;
+    padding-top: 10px;
+    grid-gap: 10px;
+    grid-template-columns: 28% 55%;
+    grid-template-rows: (5, 30px);
+    grid-template-areas:
+      "firstName firstfield"
+      "middleName middlefield"
+      "lastName lastfield"
+      "passlabel passwordfield"
+      "emaillabel emailfield";
+  }
+  label[for="firstName"] {
+    grid-area: firstName;
+    display: contents;
+  }
+  input[name="firstName"] {
+    grid-area: firstfield;
+  }
+  label[for="middleName"] {
+    grid-area: middleName;
+    display: contents;
+  }
+  input[name="middleName"] {
+    grid-area: middlefield;
+  }
+  label[for="lastName"] {
+    grid-area: lastName;
+    display: contents;
+  }
+  input[name="lastName"] {
+    grid-area: lastfield;
+  }
+  label[for="email"] {
+    grid-area: emaillabel;
+  }
+
+  input[name="email"] {
+    grid-area: emailfield;
+  }
+  textarea[name="personalinfo"] {
+    display: none;
+  }
+  ::placeholder {
+    color: transparent;
+  }
+}
